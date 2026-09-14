@@ -4,183 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Roshini Login</title>
+    <title>Roshini Website</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #141e30, #243b55);
-            height: 100vh;
+            background: #e8eef5;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
         }
 
-        .login-container {
-            width: 380px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        .box {
+            width: 320px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
-        .login-container h1 {
+        h1 {
             text-align: center;
-            margin-bottom: 8px;
-            color: #141e30;
         }
 
-        .login-container p {
-            text-align: center;
-            color: #777;
-            margin-bottom: 30px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .input-group input {
+        input {
             width: 100%;
-            padding: 13px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 15px;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+            border-radius: 6px;
         }
 
-        .input-group input:focus {
-            outline: none;
-            border-color: #243b55;
-        }
-
-        .login-button {
+        button {
             width: 100%;
-            padding: 13px;
-            border: none;
-            border-radius: 8px;
-            background: #243b55;
+            padding: 12px;
+            margin-top: 10px;
+            background: #222;
             color: white;
-            font-size: 16px;
-            font-weight: bold;
+            border: none;
+            border-radius: 6px;
             cursor: pointer;
         }
 
-        .login-button:hover {
-            background: #141e30;
-        }
-
-        #result {
+        #message {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 15px;
             font-weight: bold;
-        }
-
-        .footer {
-            margin-top: 25px;
-            text-align: center;
-            font-size: 13px;
-            color: #888;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="login-container">
+<div class="box">
 
-        <h1>Welcome</h1>
+    <h1>Roshini Website</h1>
 
-        <p>Login to Roshini Website</p>
+    <input type="text" id="username" placeholder="Username">
 
-        <form id="loginForm">
+    <input type="password" id="password" placeholder="Password">
 
-            <div class="input-group">
-                <label for="username">Username</label>
+    <button onclick="login()">Login</button>
 
-                <input
-                    type="text"
-                    id="username"
-                    placeholder="Enter username"
-                    required
-                >
-            </div>
+    <div id="message"></div>
 
-            <div class="input-group">
-                <label for="password">Password</label>
+</div>
 
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Enter password"
-                    required
-                >
-            </div>
+<script>
 
-            <button type="submit" class="login-button">
-                Login
-            </button>
+function login() {
 
-        </form>
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
 
-        <div id="result"></div>
+    let message = document.getElementById("message");
 
-        <div class="footer">
-            © 2026 Roshini Website
-        </div>
+    if (username === "roshini" && password === "12345") {
 
-    </div>
+        message.innerHTML = "Login Successful!";
+        message.style.color = "green";
 
-    <script>
+    } else {
 
-        const form = document.getElementById("loginForm");
+        message.innerHTML = "Invalid Username or Password";
+        message.style.color = "red";
 
-        form.addEventListener("submit", function(event) {
+    }
+}
 
-            event.preventDefault();
-
-            const username =
-                document.getElementById("username").value;
-
-            const password =
-                document.getElementById("password").value;
-
-            const result =
-                document.getElementById("result");
-
-            /*
-             * Demo login credentials.
-             * Do NOT use real passwords here.
-             */
-
-            if (username === "roshini" && password === "12345") {
-
-                result.textContent = "Login Successful";
-                result.style.color = "green";
-
-            } else {
-
-                result.textContent = "Invalid Username or Password";
-                result.style.color = "red";
-
-            }
-
-        });
-
-    </script>
+</script>
 
 </body>
 </html>
