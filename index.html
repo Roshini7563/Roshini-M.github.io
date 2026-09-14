@@ -4,143 +4,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roshini Website - Login</title>
+
+    <title>Roshini Login</title>
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #f2f2f2;
         }
 
-        .login-box {
-            width: 350px;
-            padding: 35px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        .login-container {
+            width: 380px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
-        h1 {
+        .login-container h1 {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            color: #141e30;
         }
 
-        .subtitle {
+        .login-container p {
             text-align: center;
-            color: #666;
-            margin-bottom: 25px;
+            color: #777;
+            margin-bottom: 30px;
         }
 
-        label {
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
             display: block;
-            margin-bottom: 7px;
+            margin-bottom: 8px;
             font-weight: bold;
+            color: #333;
         }
 
-        input {
+        .input-group input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 18px;
+            padding: 13px;
             border: 1px solid #ccc;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 15px;
         }
 
-        input:focus {
+        .input-group input:focus {
             outline: none;
-            border-color: #555;
+            border-color: #243b55;
         }
 
-        button {
+        .login-button {
             width: 100%;
-            padding: 12px;
+            padding: 13px;
             border: none;
-            border-radius: 6px;
-            background: #222;
+            border-radius: 8px;
+            background: #243b55;
             color: white;
             font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
         }
 
-        button:hover {
-            background: #444;
+        .login-button:hover {
+            background: #141e30;
         }
 
-        #message {
+        #result {
             text-align: center;
-            margin-top: 18px;
+            margin-top: 20px;
             font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="login-box">
+    <div class="login-container">
 
-        <h1>Roshini Website</h1>
+        <h1>Welcome</h1>
 
-        <p class="subtitle">Login to continue</p>
+        <p>Login to Roshini Website</p>
 
         <form id="loginForm">
 
-            <label for="username">Username</label>
-            <input
-                type="text"
-                id="username"
-                placeholder="Enter username"
-                required
-            >
+            <div class="input-group">
+                <label for="username">Username</label>
 
-            <label for="password">Password</label>
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter password"
-                required
-            >
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter username"
+                    required
+                >
+            </div>
 
-            <button type="submit">Login</button>
+            <div class="input-group">
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="login-button">
+                Login
+            </button>
 
         </form>
 
-        <p id="message"></p>
+        <div id="result"></div>
+
+        <div class="footer">
+            © 2026 Roshini Website
+        </div>
 
     </div>
 
     <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+        const form = document.getElementById("loginForm");
+
+        form.addEventListener("submit", function(event) {
 
             event.preventDefault();
 
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const message = document.getElementById("message");
+            const username =
+                document.getElementById("username").value;
 
-            // Demo credentials only
+            const password =
+                document.getElementById("password").value;
+
+            const result =
+                document.getElementById("result");
+
+            /*
+             * Demo login credentials.
+             * Do NOT use real passwords here.
+             */
+
             if (username === "roshini" && password === "12345") {
 
-                message.textContent = "Login successful!";
-                message.style.color = "green";
+                result.textContent = "Login Successful";
+                result.style.color = "green";
 
             } else {
 
-                message.textContent = "Invalid username or password.";
-                message.style.color = "red";
+                result.textContent = "Invalid Username or Password";
+                result.style.color = "red";
 
             }
 
         });
+
     </script>
 
 </body>
