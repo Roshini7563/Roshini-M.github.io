@@ -4,14 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>URL Submit</title>
+    <title>Formspree Test</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             min-height: 100vh;
@@ -19,87 +14,72 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
-            background: #ffffff;
+            background: #f5f5f5;
         }
 
-        .container {
+        .box {
             width: 90%;
             max-width: 600px;
             text-align: center;
         }
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 30px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
         input {
             width: 100%;
-            height: 52px;
-            padding: 0 22px;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 30px;
             font-size: 16px;
-            border: 1px solid #d9d9d9;
-            border-radius: 28px;
             outline: none;
-            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.15);
-        }
-
-        input:focus {
-            box-shadow: 0 1px 8px rgba(32, 33, 36, 0.25);
         }
 
         button {
-            margin-top: 25px;
-            padding: 12px 28px;
-            border: none;
-            border-radius: 5px;
+            margin-top: 20px;
+            padding: 12px 30px;
+            border: 0;
+            border-radius: 6px;
             background: #4285f4;
             color: white;
-            font-size: 15px;
             cursor: pointer;
+            font-size: 15px;
         }
 
-        button:hover {
-            background: #3367d6;
+        button:disabled {
+            opacity: 0.6;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="box">
 
-        <h1>URL Submit</h1>
+    <h2>Submit URL</h2>
 
-        <!--
-            IMPORTANT:
-            Replace the URL below with YOUR REAL Formspree endpoint.
-        -->
+    <form
+        action="https://formspree.io/f/xnpnajpe"
+        method="POST"
+        id="urlForm">
 
-        <form
-            action="https://formspree.io/f/xnpnajpe"
-            method="POST">
+        <input
+            type="url"
+            name="submitted_url"
+            value="https://example.com"
+            required>
 
-            <input
-                type="url"
-                name="submitted_url"
-                value="https://example.com"
-                placeholder="Enter URL"
-                required>
+        <button type="submit" id="submitButton">
+            Submit
+        </button>
 
-            <button type="submit">
-                Submit
-            </button>
+    </form>
 
-        </form>
+</div>
 
-    </div>
+<script>
+    document.getElementById("urlForm").addEventListener("submit", function () {
+        document.getElementById("submitButton").disabled = true;
+    });
+</script>
 
 </body>
 </html>
