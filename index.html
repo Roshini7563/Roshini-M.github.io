@@ -1,15 +1,14 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Submission</title>
+    <title>Formspree URL Test</title>
 
     <style>
         body {
             margin: 0;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -29,7 +28,7 @@
 
         input {
             width: 100%;
-            padding: 16px 20px;
+            padding: 15px 20px;
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 30px;
@@ -44,36 +43,40 @@
             border-radius: 6px;
             background: #4285f4;
             color: white;
-            font-size: 15px;
+            font-size: 16px;
             cursor: pointer;
+        }
+
+        button:hover {
+            background: #3367d6;
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1>URL Submission</h1>
+        <h1>Formspree URL Test</h1>
 
-    <form
-        action="https://formspree.io/f/xnpnajpe"
-        method="POST">
+        <form
+            action="https://formspree.io/f/xnpnajpe"
+            method="POST">
 
-        <input
-            type="url"
-            name="submitted_url"
-            value="https://example.com"
-            required>
+            <input
+                type="url"
+                name="submitted_url"
+                value="https://example.com"
+                placeholder="Enter URL"
+                required>
 
-        <button type="submit">
-            Submit
-        </button>
+            <button type="submit">
+                Submit
+            </button>
 
-    </form>
+        </form>
 
-</div>
+    </div>
 
 </body>
 </html>
-```
