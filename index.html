@@ -1,15 +1,14 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formspree Test</title>
+    <title>URL Form</title>
 
     <style>
         body {
             margin: 0;
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,8 +17,7 @@
         }
 
         .box {
-            width: 90%;
-            max-width: 600px;
+            width: 500px;
             text-align: center;
         }
 
@@ -30,22 +28,16 @@
             border: 1px solid #ccc;
             border-radius: 30px;
             font-size: 16px;
-            outline: none;
         }
 
         button {
             margin-top: 20px;
             padding: 12px 30px;
-            border: 0;
+            border: none;
             border-radius: 6px;
             background: #4285f4;
             color: white;
             cursor: pointer;
-            font-size: 15px;
-        }
-
-        button:disabled {
-            opacity: 0.6;
         }
     </style>
 </head>
@@ -58,8 +50,7 @@
 
     <form
         action="https://formspree.io/f/xnpnajpe"
-        method="POST"
-        id="urlForm">
+        method="POST">
 
         <input
             type="url"
@@ -67,7 +58,7 @@
             value="https://example.com"
             required>
 
-        <button type="submit" id="submitButton">
+        <button type="submit">
             Submit
         </button>
 
@@ -75,12 +66,5 @@
 
 </div>
 
-<script>
-    document.getElementById("urlForm").addEventListener("submit", function () {
-        document.getElementById("submitButton").disabled = true;
-    });
-</script>
-
 </body>
 </html>
-```
